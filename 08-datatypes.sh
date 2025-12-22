@@ -3,7 +3,7 @@ n1=145
 n2=55
 F3="Priyanka"
 Flowers=("Jasmine" "Lilly" "Rose")
-sum=$($n1+$n2)
+sum=$(($n1+$n2))
 echo "Sum of the nubers is $sum"
 echo "The first flower is ${Flowers[0]}"
 echo "All flowers are ${Flowers[@]}"
