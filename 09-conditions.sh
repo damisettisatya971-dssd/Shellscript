@@ -1,9 +1,9 @@
 #!/bin/bash
 echo "Enter a numer to check:"
 read NUM
-if [ $NUM -lt 10]; then
+if [$NUM -lt 10]; then
  echo "$NUM is less than 10"
-elif [ $NUM -eq 10]; then
+elif [$NUM -eq 10]; then
  echo "$NUM is equals to 10"
 else
  echo "$NUM is greater than 10"
