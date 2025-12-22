@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "Please enter your name:"
-read -s Name
+read  Name
 echo "Hi $Name, please enter your phone number :"
-read -s PH_Number
+read  PH_Number
 echo "OTP has been sent to your $PH_Number, please enter :"
-read -s OTP
+read -s OTP #-s make the input visible while user entering it
 echo "Entered OTP is correct"
