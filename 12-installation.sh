@@ -7,7 +7,7 @@ if [ $userid -ne 0 ]; then
 dnf install mysql -y
 if [ $? -ne 0 ]; then
   echo "ERROR: MySQL installation got failed"
- exit 1
+  
 else
   echo "MySQL installation is success"
 fi
