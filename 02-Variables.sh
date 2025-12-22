@@ -1,5 +1,5 @@
 #!/bin/bash
-$Name1=Satya
+$Name1=Divya
 $Name2=Ramya
 echo "Hi This is $Name1, practicing shell scripting."
 echo " Hello this is $Name2, good to know about that. I'm also interested to learn"
