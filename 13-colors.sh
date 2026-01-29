@@ -13,10 +13,10 @@ fi
 
 validate(){
   if [ $1 -ne 0 ]; then
-    echo "$R ERROR: $2 installation got failed $N"
+    echo -e "$R ERROR: $2 installation got failed $N"
     exit 1
   else
-    echo "$G $2 installation is success $N"
+    echo -e "$G $2 installation is success $N"
 fi
 
 }
