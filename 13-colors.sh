@@ -17,14 +17,34 @@ validate(){
     exit 1
   else
     echo -e "$G $2 installation is success $N"
-fi
+  fi
 
 }
-dnf install mysql -y
-validate $? "mysql"
 
-dnf install nginx -y
-validate $? "nginx"
+dnf list installed mysql
 
-dnf install python3 -y
-validate $? "python3"
+if[$? ne 0]then;
+    dnf install mysql -y
+    validate $? "mysql"
+else
+    echo -e "mysql already exist ... $Y mysql $N"
+fi    
+
+ 
+dnf list installed nginx
+
+if[$? ne 0]then;
+    dnf install nginx -y
+    validate $? "nginx"
+else
+    echo -e "nginx already exist ... $Y nginx $N"
+fi  
+dnf list installed python3
+
+if[$? ne 0]then;
+    dnf install python3 -y
+    validate $? "python3"
+else
+    echo -e "python3 already exist ... $Y python3 $N"
+fi 
+
