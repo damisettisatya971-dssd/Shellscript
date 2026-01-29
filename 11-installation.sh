@@ -1,9 +1,14 @@
 #!/bin/bash
-
 userid=$(id -u)
-
-if [ $userid -eq 0 ]; then
- dnf install mysql -y
-else
+if [ $userid -ne 0 ]; then
  echo "Ensure you have admin access to install mysql"
-fi 
+ exit 1
+fi
+dnf install mysql -y
+
+if [ $? -ne 0 ]; then
+  echo "ERROR: MySQL installation got failed"
+  exit 1
+else
+  echo "MySQL installation is success"
+fi
