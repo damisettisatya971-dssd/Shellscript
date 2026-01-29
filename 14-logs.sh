@@ -19,10 +19,11 @@ fi
 
 validate(){
   if [ $1 -ne 0 ]; then #validating the installation status
-    echo -e "$R ERROR: $2 installation got failed $N"
+    echo -e "$R ERROR: $2 installation got failed $N"|tee -a $LOG_FILE
+    
     exit 1
   else
-    echo -e "$G $2 installation is success $N"
+    echo -e "$G $2 installation is success $N"|tee -a $LOG_FILE
   fi
 
 }
@@ -33,7 +34,7 @@ if [ $? -ne 0 ];then
     dnf install mysql -y &>>$LOG_FILE
     validate $? "mysql"
 else
-    echo -e "mysql already exist ... $Y skipping $N"
+    echo -e "mysql already exist ... $Y skipping $N"|tee -a $LOG_FILE
 fi    
 
  
@@ -43,7 +44,7 @@ if [ $? -ne 0 ];then
     dnf install nginx -y &>>$LOG_FILE
     validate $? "nginx"
 else
-    echo -e "nginx already exist ... $Y skipping $N"
+    echo -e "nginx already exist ... $Y skipping $N"|tee -a $LOG_FILE
 fi  
 
 dnf list installed python3 &>>$LOG_FILE
@@ -52,6 +53,6 @@ if [ $? -ne 0 ];then
     dnf install python3 -y &>>$LOG_FILE
     validate $? "python3"
 else
-    echo -e "python3 already exist ... $Y skipping $N"
+    echo -e "python3 already exist ... $Y skipping $N"|tee -a $LOG_FILE
 fi 
 
