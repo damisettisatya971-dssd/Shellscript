@@ -30,7 +30,7 @@ validate(){
 dnf list installed mysql &>>$LOG_FILE
 #checking whther mysql installed or not
 if [ $? -ne 0 ];then
-    dnf install mysql -y
+    dnf install mysql -y &>>$LOG_FILE
     validate $? "mysql"
 else
     echo -e "mysql already exist ... $Y skipping $N"
@@ -40,7 +40,7 @@ fi
 dnf list installed nginx &>>$LOG_FILE
 #checking whther nginx installed or not
 if [ $? -ne 0 ];then
-    dnf install nginx -y
+    dnf install nginx -y &>>$LOG_FILE
     validate $? "nginx"
 else
     echo -e "nginx already exist ... $Y skipping $N"
@@ -49,7 +49,7 @@ fi
 dnf list installed python3 &>>$LOG_FILE
 #checking whther python3 installed or not
 if [ $? -ne 0 ];then
-    dnf install python3 -y
+    dnf install python3 -y &>>$LOG_FILE
     validate $? "python3"
 else
     echo -e "python3 already exist ... $Y skipping $N"
