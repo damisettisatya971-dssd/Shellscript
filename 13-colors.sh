@@ -6,13 +6,13 @@ Y="\e[33m"
 N="\e[0m"
 
 userid=$(id -u)
-if [ $userid -ne 0 ]; then
+if [ $userid -ne 0 ]; then #Checking wther user has enough privelege to install packages
  echo -e "$R Ensure you have admin access to install mysql $N"
  exit 1
 fi
 
 validate(){
-  if [ $1 -ne 0 ]; then
+  if [ $1 -ne 0 ]; then #validating the installation status
     echo -e "$R ERROR: $2 installation got failed $N"
     exit 1
   else
@@ -22,7 +22,7 @@ validate(){
 }
 
 dnf list installed mysql
-
+#checking whther mysql installed or not
 if [ $? -ne 0 ];then
     dnf install mysql -y
     validate $? "mysql"
@@ -32,15 +32,16 @@ fi
 
  
 dnf list installed nginx
-
+#checking whther nginx installed or not
 if [ $? -ne 0 ];then
     dnf install nginx -y
     validate $? "nginx"
 else
     echo -e "nginx already exist ... $Y skipping $N"
 fi  
-dnf list installed python3
 
+dnf list installed python3
+#checking whther python3 installed or not
 if [ $? -ne 0 ];then
     dnf install python3 -y
     validate $? "python3"
