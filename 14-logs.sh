@@ -10,14 +10,12 @@ SCRIPT_NAME=$(echo $0|cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 
 mkdir -p $LOGS_FOLDER
-
+echo "Script started executed at: $(date)" | tee -a $LOG_FILE
 userid=$(id -u)
 if [ $userid -ne 0 ]; then #Checking wther user has enough privelege to install packages
  echo -e "$R Ensure you have admin access to install mysql $N"
  exit 1
 fi
-
-echo "Script started execution at $(date)"|tee -a $LOG_FILE
 
 validate(){
   if [ $1 -ne 0 ]; then #validating the installation status
