@@ -17,6 +17,8 @@ if [ $userid -ne 0 ]; then #Checking wther user has enough privelege to install 
  exit 1
 fi
 
+echo "Script started execution at $(date)"|tee -a $LOG_FILE
+
 validate(){
   if [ $1 -ne 0 ]; then #validating the installation status
     echo -e "$R ERROR: $2 installation got failed $N"|tee -a $LOG_FILE
