@@ -11,6 +11,7 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/14-logs.log
 
 mkdir -p $LOGS_FOLDER
 echo "Script started executed at: $(date)" | tee -a $LOG_FILE
+
 userid=$(id -u)
 if [ $userid -ne 0 ]; then #Checking wther user has enough privelege to install packages
  echo -e "$R Ensure you have admin access to install mysql $N"
@@ -20,12 +21,10 @@ fi
 validate(){
   if [ $1 -ne 0 ]; then #validating the installation status
     echo -e "$R ERROR: $2 installation got failed $N"|tee -a $LOG_FILE
-    
     exit 1
   else
     echo -e "$G $2 installation is success $N"|tee -a $LOG_FILE
   fi
-
 }
 
 dnf list installed mysql &>>$LOG_FILE
